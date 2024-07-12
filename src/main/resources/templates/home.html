@@ -34,7 +34,7 @@
         form {
             margin-top: 20px;
         }
-        input[type="submit"] {
+        input[type="submit"], input[type="button"] {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -45,15 +45,20 @@
             transition: background 0.3s, transform 0.3s;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
-        input[type="submit"]:hover {
+        input[type="submit"]:hover, input[type="button"]:hover {
             background: #2980b9;
             transform: scale(1.05);
         }
-        input[type="submit"]:active {
+        input[type="submit"]:active, input[type="button"]:active {
             background: #2471a3;
             transform: scale(1);
         }
     </style>
+    <script>
+        function redirectToExternalUrl(url) {
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
 <h2>Welcome to Spring Boot Home Page!!</h2>
@@ -66,24 +71,23 @@
     <br><br>
     Role(s):<span sec:authentication="principal.authorities"></span>
 </p>
-<hr >
+<hr>
 <!--Add Link to point to /leaders but this is for MANAGER role only -->
 
 <div sec:authorize="hasRole('MANAGER')">
-<p>
-    <a th:href="@{/leaders}">Leadership Meeting!</a>
-    (Only for Managers!)
-</p>
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting!</a>
+        (Only for Managers!)
+    </p>
 </div>
 
 <!--Add link to point to /systems but this is for ADMIN only! -->
 
 <div sec:authorize="hasRole('ADMIN')">
-<p>
-    <a th:href="@{/systems}">System Status</a>
-    (Only for System Engineers!)
-</p>
-
+    <p>
+        <a th:href="@{/systems}">System Status</a>
+        (Only for System Engineers!)
+    </p>
 </div>
 
 
@@ -92,5 +96,9 @@
 <form th:action="@{/logout}" method="POST">
     <input type="submit" value="Logout" />
 </form>
+
+<!-- Adding button to redirect to external URL -->
+
+
 </body>
 </html>
