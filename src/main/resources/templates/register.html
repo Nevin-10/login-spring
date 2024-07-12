@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #3494e6, #ec6ead); /* Gradient background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666666;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #333333;
+        }
+        .radio-group input[type="radio"] {
+            transform: scale(1.5);
+            margin-right: 10px;
+            opacity: 0; /* Hide the actual radio buttons */
+        }
+        .radio-group input[type="radio"] + label {
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+            line-height: 24px;
+            display: inline-block;
+        }
+        .radio-group input[type="radio"] + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #3494e6; /* Radio button outer circle color */
+            background-color: #ffffff; /* Radio button inner background color */
+        }
+        .radio-group input[type="radio"]:checked + label:before {
+            background-color: #3494e6; /* Checked radio button inner background color */
+        }
+        button[type="submit"] {
+            background-color: #6be585; /* Gradient green button */
+            background-image: linear-gradient(to right, #6be585, #3bcea3);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #65d79f; /* Gradient green button on hover */
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/register}" method="post">
+    <h2>Register</h2>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div class="radio-group">
+
+        <input type="radio" id="role_employee" name="role" value="EMPLOYEE" required>
+        <label for="role_employee">Employee</label>
+        <input type="radio" id="role_manager" name="role" value="MANAGER">
+        <label for="role_manager">Manager</label>
+        <input type="radio" id="role_admin" name="role" value="ADMIN">
+        <label for="role_admin">Admin</label>
+    </div>
+
+
+    <div>
+        <button type="submit">Register</button>
+    </div>
+
+    <p>
+        <a th:href="@{/showLoginForm}">Have an account?</a>
+    </p>
+</form>
+</body>
+</html>

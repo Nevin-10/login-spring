@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: #fff;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+        h3 {
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        .failed {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>LOGIN</h3>
+    <form action="#" th:action="@{/authenticateTheUser}" method="POST">
+        <!--If authentication made, automatically load root -->
+
+        <!--Checking for error parameter -->
+        <div th:if="${param.error}">
+            <i class="failed">Sorry! You have entered Invalid username or password</i>
+        </div>
+        <p>
+            <input type="text" name="username" placeholder="User name" required />
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Password" required />
+        </p>
+        <input type="submit" value="Login" />
+    </form>
+
+    <!--SIGNUP -->
+    <p>
+        <a th:href="@{/register}">Don't have an account?</a>
+    </p>
+
+    <!-- Checking For logout parameter th:if="" for checking,action other way -->
+
+    <div th:if="${param.logout}">
+        <i>You have been Logged Out!</i>
+    </div>
+</div>
+</body>
+</html>

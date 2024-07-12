@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>NevinX</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        hr {
+            width: 80%;
+            border: 1px solid #fff;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #3498db;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        input[type="submit"]:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+        input[type="submit"]:active {
+            background: #2471a3;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+<h2>Welcome to Spring Boot Home Page!!</h2>
+<hr>
+<p>Welcome!</p>
+
+<!-- Display username and roles -->
+<p>
+    User: <span sec:authentication="principal.username"></span>
+    <br><br>
+    Role(s):<span sec:authentication="principal.authorities"></span>
+</p>
+<hr >
+<!--Add Link to point to /leaders but this is for MANAGER role only -->
+
+<div sec:authorize="hasRole('MANAGER')">
+<p>
+    <a th:href="@{/leaders}">Leadership Meeting!</a>
+    (Only for Managers!)
+</p>
+</div>
+
+<!--Add link to point to /systems but this is for ADMIN only! -->
+
+<div sec:authorize="hasRole('ADMIN')">
+<p>
+    <a th:href="@{/systems}">System Status</a>
+    (Only for System Engineers!)
+</p>
+
+</div>
+
+
+
+<!-- Adding Logout Button, /login does this automatically need to call it POST -->
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout" />
+</form>
+</body>
+</html>

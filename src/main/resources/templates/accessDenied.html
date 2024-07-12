@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #f94d6f);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #f39c12;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #3498db;
+            color: #fff;
+            font-size: 1em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        a:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+        a:active {
+            background: #2471a3;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Access Denied!</h2>
+    <p>You do not have permission to view this page.</p>
+    <a th:href="@{/}">Return to Home Page</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: color-change 3s infinite alternate;
+        }
+        @keyframes color-change {
+            0% { color: #ffaf7b; }
+            50% { color: #d76d77; }
+            100% { color: #3a1c71; }
+        }
+        .sparkles {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: sparkle-fall 5s linear infinite;
+        }
+        @keyframes sparkle-fall {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(100vh) translateX(10vw); }
+        }
+        .sparkles:nth-child(2n) { background: #ffaf7b; }
+        .sparkles:nth-child(3n) { background: #d76d77; }
+        .sparkles:nth-child(4n) { background: #3a1c71; }
+    </style>
+</head>
+<body>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<div class="sparkles"></div>
+<p>Systems are working normally!</p>
+</body>
+</html>
