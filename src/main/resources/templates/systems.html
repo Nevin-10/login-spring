@@ -46,11 +46,7 @@
         .sparkles:nth-child(4n) { background: #3a1c71; }
     </style>
 
-    <script>
-        function redirectToExternalUrl(url) {
-            window.location.href = url;
-        }
-    </script>
+
 </head>
 <body>
 <div class="sparkles"></div>
@@ -63,7 +59,8 @@
 <div class="sparkles"></div>
 <div class="sparkles"></div>
 <div class="sparkles"></div>
-<p>Systems are working normally!</p>
-<input type="button" value="Blog APP" onclick="redirectToExternalUrl('https://nevin-10.github.io/spring-frontend/')" />
+
+<div id="root"></div>
+<script th:src="@{/static/js/main.930ad72a.js}"></script>
 </body>
 </html>
