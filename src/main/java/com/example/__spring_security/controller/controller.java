@@ -20,7 +20,7 @@ public class controller {
         return "leaders";
     }
 
-    @GetMapping("/systems")
+    @GetMapping("/blog")
     public String systemsPage(){
         return "systems";
     }
