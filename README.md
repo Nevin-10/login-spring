@@ -1,1 +1,1 @@
-Link:https://amused-manifestation-production.up.railway.app/
+https://amused-manifestation-production.up.railway.app/
