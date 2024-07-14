@@ -33,6 +33,9 @@ public class DemoSecurityConfig {
     }
 
 
+    //So that Spring security can convert entered password to hash
+
+
 
 
 
