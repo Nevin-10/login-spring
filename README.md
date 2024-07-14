@@ -1,1 +1,1 @@
-https://amused-manifestation-production.up.railway.app/
+https://blogx.azurewebsites.net/
